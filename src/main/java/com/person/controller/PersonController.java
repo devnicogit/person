@@ -20,7 +20,7 @@ public class PersonController {
     public ResponseEntity<?> findById(@PathVariable Long id){
         Optional<Person> personOptional = personService.findById(id);
         if(personOptional.isPresent()){
-
+            Person person = personOptional.get();
         }
     }
 }
