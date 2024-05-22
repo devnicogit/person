@@ -34,4 +34,9 @@ public class PersonServiceImpl implements IPersonService {
     public void deleteById(Long id) {
         personDAO.deleteById(id);
     }
+
+    @Override
+    public boolean existsByDni(String dni) {
+        return personDAO.existsByDni(dni);
+    }
 }

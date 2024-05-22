@@ -1,5 +1,6 @@
 package com.person.dto;
 
+import com.person.validation.ValidDateFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +10,9 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 
 @Data
@@ -18,8 +22,13 @@ import java.time.LocalDate;
 public class PersonDTO {
 
     private Long id;
+    @NotBlank(message = "El nombre es obligatorio")
     private String nombre;
+    @NotBlank(message = "El apellido es obligatorio")
     private String apellido;
-    private LocalDate fechaNacimiento;
+    @ValidDateFormat
+    private String fechaNacimiento;
+    @NotBlank(message = "El DNI no puede estar vacío")
+    @Pattern(regexp = "^\\d{8}$", message = "El DNI debe tener exactamente 8 dígitos")
     private String dni;
 }

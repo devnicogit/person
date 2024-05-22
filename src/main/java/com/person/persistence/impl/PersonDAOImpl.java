@@ -33,4 +33,9 @@ public class PersonDAOImpl implements IPersonDAO {
     public void deleteById(Long id) {
         personRepository.deleteById(id);
     }
+
+    @Override
+    public boolean existsByDni(String dni) {
+        return personRepository.existsByDni(dni);
+    }
 }

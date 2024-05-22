@@ -13,4 +13,6 @@ public interface IPersonService {
     void save(Person person);
 
     void deleteById(Long id);
+
+    boolean existsByDni(String dni);
 }

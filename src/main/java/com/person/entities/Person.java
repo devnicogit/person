@@ -1,12 +1,16 @@
 package com.person.entities;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Data
+@Setter
+@Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "persons")
 public class Person {
 
@@ -20,6 +24,6 @@ public class Person {
 
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
-
+    @Column(unique = true)
     private String dni;
 }
